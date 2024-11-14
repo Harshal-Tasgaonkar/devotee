@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/devotee/static/css/main.77befba7.css",
-    "main.js": "/devotee/static/js/main.8f9e5b50.js",
+    "main.js": "/devotee/static/js/main.dcea0f99.js",
     "static/js/453.c531aa0e.chunk.js": "/devotee/static/js/453.c531aa0e.chunk.js",
     "static/media/hero-bg-2.jpg": "/devotee/static/media/hero-bg-2.01f867a60ab8858501e5.jpg",
     "static/media/support-bg.jpg": "/devotee/static/media/support-bg.272327af0dd7f939fe1c.jpg",
@@ -15,11 +15,11 @@
     "static/media/plus.svg": "/devotee/static/media/plus.5e985076455b9ab77c55.svg",
     "static/media/minus.svg": "/devotee/static/media/minus.402c7b40ac9070c687a9.svg",
     "main.77befba7.css.map": "/devotee/static/css/main.77befba7.css.map",
-    "main.8f9e5b50.js.map": "/devotee/static/js/main.8f9e5b50.js.map",
+    "main.dcea0f99.js.map": "/devotee/static/js/main.dcea0f99.js.map",
     "453.c531aa0e.chunk.js.map": "/devotee/static/js/453.c531aa0e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.77befba7.css",
-    "static/js/main.8f9e5b50.js"
+    "static/js/main.dcea0f99.js"
   ]
 }
