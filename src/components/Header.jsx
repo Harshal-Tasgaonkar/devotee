@@ -1,13 +1,30 @@
-import React from 'react'
+import React,{ useState }  from 'react'
 import brand from "../assets/images/brand.png"
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+
   const handleOffcanvasToggle = () => {
+
+    
+
     const offcanvasElement = document.getElementById("offCanvasSidebar");
     const offcanvas = new window.bootstrap.Offcanvas(offcanvasElement);  // Use window.bootstrap with CDN
     offcanvas.toggle();
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Toggle body scroll
+    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : 'auto';
+  };
+
+  const toggleSubmenu = (index) => {
+    setActiveSubmenu(activeSubmenu === index ? null : index);
   };
 
   return (
@@ -51,8 +68,8 @@ const Header = () => {
        <div className="container">
          <div className="row">
            <div className="col-12">
-             <div className="nav-toggle">
-               <i className="bi bi-list" />
+             <div className="nav-toggle" onClick={toggleMobileMenu}>
+             <i class="fa-solid fa-list-ul"></i>
              </div>
              <div className="menu-wrap">
                <nav className="menu-nav">
@@ -125,23 +142,14 @@ const Header = () => {
                        <a href="about.html">Gallery</a>
                        <ul className="sub-menu">
                          <li>
-                           <a href="dailydarshan.html">Daily Darshan</a>
+                           <Link to="/dailydarshan">Daily Darshan</Link>
                          </li>
                          <li>
-                           <a href="gallery-mixed.html">Deity Darshan</a>
-                           <ul className="sub-menu">
-                             <li>
-                               <a href="deity-darshan.html">
-                                 Deity Darshan – HK Hill
-                               </a>
-                             </li>
-                             <li>
-                               <a href="gallery.html">Deity Darshan – VK Hill</a>
-                             </li>
-                           </ul>
+                           <Link to="/deity">Deity Darshan</Link>
+                           
                          </li>
                          <li>
-                           <a href="costume.html">Krishna Costume</a>
+                           <Link to="/costume">Krishna Costume</Link>
                          </li>
                          <li>
                            <a href="dignitaries-visit.html">Dignitaries Visit</a>
@@ -196,65 +204,51 @@ const Header = () => {
          </div>
        </div>
      </div>
-     {/* Mobile Menu  */}
-     <div className="mobile-menu">
-       <nav className="mobile-menu-box">
-         <div className="close-btn">
-           <i className="bi bi-x-lg" />
-         </div>
-         <div className="nav-brand">
-           <a href="index.html">
-             <img src={brand} alt="Logo" />
-           </a>
-         </div>
-         <div className="mobile-menu-wrap">
-           {/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
-         </div>
-         <div className="menu-search-box">
-           <form action="#">
-             <input type="text" placeholder="Search here..." />
-             <button>
-               <i className="bi bi-search" />
-             </button>
-           </form>
-         </div>
-       </nav>
-     </div>
-     <div className="mobile-menu-ovelay" />
-     {/* End Mobile Menu */}
-     {/* header-search */}
-     <div className="search-box-wrap">
-       <div className="search-bg" />
-       <div className="search-close">
-         <span>
-           <i className="bi bi-x-lg" />
-         </span>
-       </div>
-       <div className="search-con text-center">
-         <div className="container">
-           <div className="row">
-             <div className="col-12">
-               <h2 className="title">
-                 <span>Search Here</span> ...
-               </h2>
-               <div className="form">
-                 <form action="#">
-                   <input
-                     type="text"
-                     name="search"
-                     placeholder="Type Query here"
-                     required=""
-                   />
-                   <button className="search-btn">
-                     <i className="bi bi-search" />
-                   </button>
-                 </form>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
+     
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+        <nav className="mobile-menu-box">
+          <div className="close-btn" onClick={toggleMobileMenu}>
+            <i className="fas fa-times" />
+          </div>
+          <div className="nav-brand">
+            <Link to="/">
+              <img src={brand} alt="Logo" />
+            </Link>
+          </div>
+          <div className="mobile-menu-wrap">
+            <ul className="navigation">
+              {/* Update your mobile menu items to include submenu toggling */}
+              <li className={activeSubmenu === 0 ? 'active' : ''}>
+                <Link to="/">Home</Link>
+              </li>
+              <li className={activeSubmenu === 1 ? 'active' : ''}>
+                <a href="#" onClick={() => toggleSubmenu(1)}>
+                  Donate <i className="fas fa-chevron-down"></i>
+                </a>
+                <ul className={`sub-menu ${activeSubmenu === 1 ? 'active' : ''}`}>
+                  <li><a href="donations.html">Become a Patron</a></li>
+                  <li><a href="donations-details.html">Festival Seva</a></li>
+                  <li><a href="annadana.html">Annadana Seva</a></li>
+                  <li><a href="go-seva.html">Go Seva</a></li>
+                  <li><a href="donations-details.html">Nitya Seva</a></li>
+                  <li><a href="donations-details.html">Mandira Nirmana Seva</a></li>
+                  <li><a href="donations-details.html">Book Distribution</a></li>
+                  <li><a href="donations-details.html">General Donations</a></li>
+                </ul>
+              </li>
+              {/* ... rest of your mobile menu items ... */}
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+     {/* Add overlay */}
+     <div 
+        className={`menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}
+        onClick={toggleMobileMenu}
+      />
+    
 <div className="offcanvas offcanvas-end" tabIndex="-1" id="offCanvasSidebar" aria-labelledby="offCanvasSidebarLabel">
 <div className="offcanvas-header">
   <div className="brand">

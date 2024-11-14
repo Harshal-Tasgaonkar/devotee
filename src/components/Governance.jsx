@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import Meta from './Meta'
 
 const Governance = () => {
   return (
     
     <>
-
+    <Meta/>
     <Header/>
 
     <section className="about-sec py-8">

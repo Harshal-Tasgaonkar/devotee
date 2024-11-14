@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import Meta from './Meta'
 
 const Events = () => {
   return (
     
    <>
-
+   <Meta/>
    <Header/>
 
    <div className="container mt-5">

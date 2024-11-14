@@ -1,6 +1,6 @@
 
 import "./assets/css/main.css";
-
+import "./assets/css/offcanvas.css";
 
 import "./assets/css/gallery.css";
 
@@ -16,12 +16,11 @@ import Objectives from "./components/Objectives";
 import Governance from "./components/Governance";
 import Leadership from "./components/Leadership";
 import FoodDistribution from "./components/FoodDistribution";
+import DailyDarshan from "./components/DailyDarshan";
+import Costume from "./components/Costume";
+import DignitariesVisit from "./components/DignitariesVisit";
+import DeityDarshan from "./components/DeityDarshan";
 
-
-// import "./assets/js/bootstrap.bundle.min.js";
-// import "./assets/js/main.js";
-// import "./assets/js/counter.js";
-// import "./assets/js/jquery.min.js"
 
 
 function App() {
@@ -40,6 +39,11 @@ function App() {
                 <Route path="/cowprotection" element={<CowProtection />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/events" element={<Events />} />
+                <Route path="/dailydarshan" element={<DailyDarshan />} />
+                <Route path="/costume" element={<Costume />} />
+                <Route path="/dignitariesvisit " element={<DignitariesVisit />} />
+                <Route path="/deity" element={<DeityDarshan />} />
+
    </Routes>
 
    </HashRouter>

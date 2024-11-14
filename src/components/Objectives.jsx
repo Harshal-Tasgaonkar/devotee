@@ -1,12 +1,14 @@
 import React from 'react'
 import Footer from './Footer'
 import Header from './Header'
+import Meta from './Meta'
 
 const Objectives = () => {
   return (
     
    <>
    <>
+   <Meta/>
    <Header/>
 
   {/* blog left sidebar section */}

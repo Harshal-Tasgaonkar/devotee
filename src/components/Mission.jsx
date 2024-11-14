@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import Meta from './Meta'
 
 const Mission = () => {
   return (
     
   <>
   <>
+  <Meta/>
   <Header/>
   {/* blog left sidebar section */}
   <section className="blog py-8">
